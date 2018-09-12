@@ -52,16 +52,16 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="curlink" href="home.index"><span class="glyphicon glyphicon-film"></span>&nbsp;电影</a>
+                    <a class="curlink" href="{{ url_for('home.index') }}"><span class="glyphicon glyphicon-film"></span>&nbsp;电影</a>
                 </li>
                 <li>
-                    <a class="curlink" href="home.login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;登录</a>
+                    <a class="curlink" href="{{ url_for('home.login') }}"><span class="glyphicon glyphicon-log-in"></span>&nbsp;登录</a>
                 </li>
                 <li>
-                    <a class="curlink" href="home.register"><span class="glyphicon glyphicon-plus"></span>&nbsp;注册</a>
+                    <a class="curlink" href="{{ url_for('home.register') }}"><span class="glyphicon glyphicon-plus"></span>&nbsp;注册</a>
                 </li>
                 <li>
-                    <a class="curlink" href="home.logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;退出</a>
+                    <a class="curlink" href="{{ url_for('home.logout') }}"><span class="glyphicon glyphicon-log-out"></span>&nbsp;退出</a>
                 </li>
                 <li>
                     <a class="curlink" href="home.user"><span class="glyphicon glyphicon-user"></span>&nbsp;会员</a>
