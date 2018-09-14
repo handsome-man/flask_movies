@@ -1,25 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from datetime import datetime
-import pymysql
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 
-#创建flask对象
-app = Flask(__name__)
-
-#配置flask配置对象中键：SQLALCHEMY_DATABASE_URI
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:liulunan@127.0.0.1:3306/movies"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-
-db = SQLAlchemy(app)
-# print(dir(db))
-# from sqlalchemy.ext.declarative import declarative_base
-# Base = declarative_base(db)
-
-# from sqlalchemy.orm import sessionmaker
-# Session = sessionmaker(db)
-# session = Session()
+from app import db
 
 
 class User(db.Model):
@@ -201,7 +184,6 @@ class OpLog(db.Model):
 
     def __repr__(self):
         return "<OpLog %r>" % self.id
-
 
 # if __name__ == '__main__':
 #     db.create_all()
