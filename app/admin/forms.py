@@ -2,7 +2,8 @@
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, ValidationError
+from app.models import Admin
 
 
 class LoginForm(FlaskForm):
@@ -42,3 +43,11 @@ class LoginForm(FlaskForm):
             "class": "btn btn-primary btn-block btn-flat",
         }
     )
+
+    def validate_account(self, field):
+        account = field.data
+        # 统计admin条数
+        admin = Admin.query.filter_by(name=account).count()
+        # 判断是否有条数
+        if admin == 0:
+            raise ValidationError("账号不存在")
